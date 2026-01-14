@@ -24,6 +24,7 @@ hub:
 
     Authenticator:
       auto_login: true
+      allow_all: true
       admin_users:
         - krushndayshmookh
 
@@ -60,3 +61,12 @@ singleuser:
 
   extraEnv:
     JUPYTER_ENABLE_LAB: 'yes'
+
+cull:
+  enabled: true
+  timeout: 900        # 15 min idle -> stop server
+  every: 60           # check every 1 min
+  maxAge: 0           # no forced max lifetime (optional)
+  users: false        # don't delete users, only stop servers
+  removeNamedServers: true
+  concurrency: 10
