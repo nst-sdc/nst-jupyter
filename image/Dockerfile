@@ -26,6 +26,7 @@ RUN usermod -l ${NB_USER} jovyan && \
 # This avoids relying on git clone every time (home is ephemeral).
 COPY starter /opt/jupyter-starter
 RUN fix-permissions /opt/jupyter-starter
+RUN chmod -R a+rX /opt/jupyter-starter
 
 # --- Copy starter into home on every spawn (home is ephemeral, so this is fine) ---
 COPY entrypoint.sh /usr/local/bin/nst-entrypoint.sh

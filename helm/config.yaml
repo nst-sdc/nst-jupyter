@@ -1,5 +1,5 @@
 proxy:
-  secretToken: "REPLACE_ME_WITH_RANDOM"  # we set this in secrets.yaml instead
+  secretToken: 'REPLACE_ME_WITH_RANDOM' # we set this in secrets.yaml instead
 
 ingress:
   enabled: true
@@ -15,37 +15,32 @@ hub:
 
     # GitHub OAuth login
     GitHubOAuthenticator:
-      oauth_callback_url: "https://notebooks.nstsdc.org/hub/oauth_callback"
+      oauth_callback_url: 'https://notebooks.nstsdc.org/hub/oauth_callback'
       scope:
-        - "read:user"
+        - 'read:user'
       # Optional: restrict logins later
       # allowed_organizations:
       #   - "nst-sdc"
 
     Authenticator:
-	    auto_login: true
+      auto_login: true
       admin_users:
         - krushndayshmookh
 
   # Keep Hub state safe (small PVC).
   db:
     type: sqlite-pvc
-  # Optional: reduce PVC size
-  db:
     pvc:
       storage: 2Gi
 
 singleuser:
-  # Use JupyterLab
-  defaultUrl: "/lab"
-
   # Use a good base image (docker-stacks)
   # Note: docker-stacks recommend quay.io over Docker Hub for updates.
   image:
     name: ghcr.io/krushndayshmookh/nst-jupyter
-    tag: "2026-01-14"
+    tag: '2026-01-14'
 
-  defaultUrl: "/lab/tree/jupyter-starter/00-welcome.ipynb"
+  defaultUrl: '/lab/tree/opt/jupyter-starter/00-welcome.ipynb'
 
   # Resource limits (tune for your hardware)
   cpu:
@@ -62,6 +57,6 @@ singleuser:
   # Optional: put user pods only on worker nodes (recommended)
   nodeSelector:
     role: compute
-  
-	extraEnv:
-    JUPYTER_ENABLE_LAB: "yes"
+
+  extraEnv:
+    JUPYTER_ENABLE_LAB: 'yes'
