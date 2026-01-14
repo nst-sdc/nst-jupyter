@@ -19,9 +19,7 @@ ARG NB_UID=1000
 ARG NB_GID=100
 
 RUN usermod -l ${NB_USER} jovyan && \
-    groupmod -n ${NB_USER} jovyan && \
     usermod -d /home/${NB_USER} -m ${NB_USER} && \
-    # docker-stacks helper ensures perms are correct
     fix-permissions /home/${NB_USER}
 
 # --- Add a tiny starter notebook into the image (so it always exists) ---
