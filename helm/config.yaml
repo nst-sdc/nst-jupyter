@@ -62,17 +62,6 @@ singleuser:
   # Optional: put user pods only on worker nodes (recommended)
   nodeSelector:
     role: compute
-
-  # auto-clone a repo on start 
-  lifecycleHooks:
-    postStart:
-      exec:
-        command:
-          - sh
-          - -c
-          - |
-            if [ ! -d "/home/jovyan/jupyter-starter" ]; then
-              git clone https://github.com/nst-sdc/jupyter-starter.git /home/jovyan/jupyter-starter
-            fi
+  
 	extraEnv:
     JUPYTER_ENABLE_LAB: "yes"
