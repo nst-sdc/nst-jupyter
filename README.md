@@ -1,19 +1,15 @@
-# NST Jupyter Starter
+# nst-jupyter
 
-This repository contains a **starter notebook** for the NST on-prem Jupyter platform.
+JupyterHub + custom notebook image for the NST compute cluster.
 
-The environment is:
-- ephemeral (no local persistence)
-- isolated per user
-- backed by the NST Compute Cluster
+- Hub URL: <https://notebooks.nstsdc.org>
+- Auth: GitHub OAuth
+- User storage: ephemeral (GitHub is the source of truth)
 
-👉 **Open NST Jupyter here:**  
-https://notebooks.nstsdc.org
+## Build + push image
 
-## How to use
-1. Log in to Jupyter using GitHub  
-2. Open `00-welcome.ipynb`  
-3. Create your own repository and work inside it  
-4. Commit and push your notebooks to GitHub
+See `image/`.
 
-This repo is only a starting point.
+## Deploy
+
+See `helm/`.

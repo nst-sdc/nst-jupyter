@@ -1,0 +1,3 @@
+helm/secrets.yaml
+**/*.pem
+**/*.json
